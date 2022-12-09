@@ -1,0 +1,30 @@
+Lots of pepoles use plugins to migrate website from one server to another using plugins but did not used fews lines of codes during migration from
+one server to another server. it will save your lots of server loads. 
+
+Check two methods for updating Database URL FOR Migration website with database from one server to another server.
+
+First Step: Download database file from phpmyadmin .
+1. Open phpmyadmin files then select the database and export the sql file.
+2. Now Open sql file using Sublime text editor or any others editor which are you using
+3. click Ctrl+H and find old url and replace it with new URL. 
+4. Save it and upload your hosting database and connect with wp_config.php file adding database name and user, passwords your site is live
+
+Seconds Methods: 
+
+2.
+ (i)   Open phpmyadmin files then select the database 
+(ii).  The left panel lists all of your databases. Select the one connected to your WordPress site and head to the SQL tab.
+(iii). Upload below query there.
+(iv).  Replace oldurl.com with your current WordPress address and newurl.com with your new WordPress address.
+(v).   You will see window your query is succefuly updated. 
+(vi).  Download database file from phpmyadmin 
+(vii). Open your cpanel database and create a database name.
+(viii). Click to import tab and import database which is downloaded from another database
+(ix).   Connect with wp_config.php file adding database name and user, passwords your site is live
+
+Database Query for chaning the WORDPRESS SITE URL with one click
+
+UPDATE wp_options SET option_value = replace(option_value, 'oldurl.com', 'newurl.com') WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET guid = replace(guid, 'oldurl.com','newurl.com');
+UPDATE wp_posts SET post_content = replace(post_content, 'oldurl.com', 'newurl.com'); 
+UPDATE wp_postmeta SET meta_value = replace(meta_value,'oldurl.com','newurl.com');
